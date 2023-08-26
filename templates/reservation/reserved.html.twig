@@ -9,4 +9,9 @@ Reservation complete
 {% else %}Reservation has been made before {% endif %}</h1><br>
 Your serial code: {{customer.reservationCode}}<br>
 Your appointment time: {{customer.appointmentTime|date('Y-m-d H:i:s')}}
+{% if reservation == false %}
+<a href="{{ path('app_cancel_visit', {'email': customer.email}) }}">Cancel visit</a><br>
+<a href="{{ path('app_print_pdf', {'email': customer.email}) }}">Download pdf</a>
+    
+{% endif %}
 {% endblock %}

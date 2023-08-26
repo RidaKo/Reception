@@ -1,0 +1,10 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Complete{% endblock %}
+
+{% block body %}
+<h1>Reservation complete</h1>
+Your serial code: {{customer.reservationCode}}<br>
+Your appointment time: {{customer.appointmentTime|date('Y-m-d H:i:s')}}
+{% endblock %}

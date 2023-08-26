@@ -9,6 +9,10 @@
 </style>
 
 <div class="example-wrapper">
+    {% if cancelled is defined %}
+    Visit has been cacelled. 
+        
+    {% endif %}
     <h1>Hello ! ✅</h1>
     <form action="{{ path('app_reserved')}}" method="post">
     <input type="email" name='email' ></input>

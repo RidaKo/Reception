@@ -26,6 +26,10 @@ class Customer
     #[ORM\Column(length: 255)]
     private ?string $state = null;
 
+    #[ORM\ManyToOne(inversedBy: 'customers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Specialist $specialist = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,6 +79,18 @@ class Customer
     public function setState(string $state): static
     {
         $this->state = $state;
+
+        return $this;
+    }
+
+    public function getSpecialist(): ?Specialist
+    {
+        return $this->specialist;
+    }
+
+    public function setSpecialist(?Specialist $specialist): static
+    {
+        $this->specialist = $specialist;
 
         return $this;
     }
