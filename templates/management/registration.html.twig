@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    {% if auth_string is defined %}
+                        <p>{{ auth_string }}</p>
+                    {% endif %}
+    <h1 class="display-4">Register</h1>
+    {{ form(form) }}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

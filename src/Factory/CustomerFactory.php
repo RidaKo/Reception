@@ -49,8 +49,9 @@ final class CustomerFactory extends ModelFactory
         return [
             'appointment_time' => self::faker()->dateTime(),
             'email' => self::faker()->email(),
-            'reservation_code' => self::faker()->regexify('[A-Z0-9]{10}'),
-            'state' => self::faker()->randomElement(['reserved', 'cancelled', 'current']),
+            'reservation_code' => self::faker()->regexify('[0-9]{3}'),
+            'state' => self::faker()->randomElement(['reserved', 'cancelled', 'current', 'finished']),
+            
         ];
     }
 

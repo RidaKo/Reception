@@ -16,6 +16,13 @@ services:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
+  database_test:
+      image: 'mysql:latest'
+      environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: main
+
+
 
 volumes:
 ###> doctrine/doctrine-bundle ###

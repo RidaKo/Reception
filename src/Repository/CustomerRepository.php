@@ -30,6 +30,19 @@ class CustomerRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()[0];
     }
+    // public function findAllOrderedByReservationCodeDesc()
+    // {
+    //     return $this->createQueryBuilder('c')
+    //         ->orderBy('c.reservation_code', 'DESC')
+    //         ->getQuery()
+    //         ->getResult();
+    // }
+
+    public function getLatestReservationNrPlusOne():int
+    {
+        return intval($this->findOneBy([], ['reservation_code' => 'DESC'])->getReservationCode())+1;
+    }
+    
 
 //    /**
 //     * @return Customer[] Returns an array of Customer objects

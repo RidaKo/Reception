@@ -39,6 +39,29 @@ class SpecialistRepository extends ServiceEntityRepository implements PasswordUp
         $this->getEntityManager()->flush();
     }
 
+    public function findIfSpecialistIsAuthorized($key):bool
+    {
+        $query = $this->createQueryBuilder('s')
+            ->andWhere('s.secretKey = :key')
+            ->andWhere('s.password IS NOT NULL')
+            ->andWhere('s.email IS NOT NULL')
+            ->setParameter('key', $key)
+            ->orderBy('s.id', 'ASC')
+            ->getQuery();
+
+            try {
+                $specialist = $query->getSingleResult(); // Returns a single Product object
+                return true;
+            } catch (\Doctrine\ORM\NoResultException $e) {
+                return false;
+            } catch (\Doctrine\ORM\NonUniqueResultException $e) {
+                return false;
+            }
+        
+        
+
+    }
+
 //    /**
 //     * @return Specialist[] Returns an array of Specialist objects
 //     */

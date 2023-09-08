@@ -4,8 +4,91 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "064b3239dde08799d915fb727d16e48a",
+    "content-hash": "1e26b3bc941ff1ff06890f601167b567",
     "packages": [
+        {
+            "name": "babdev/pagerfanta-bundle",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BabDev/PagerfantaBundle.git",
+                "reference": "39df12df63177fee40c17c6efff8d4110bea3c94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BabDev/PagerfantaBundle/zipball/39df12df63177fee40c17c6efff8d4110bea3c94",
+                "reference": "39df12df63177fee40c17c6efff8d4110bea3c94",
+                "shasum": ""
+            },
+            "require": {
+                "pagerfanta/core": "^3.1",
+                "php": "^7.4 || ^8.0",
+                "symfony/config": "^4.4 || ^5.4 || ^6.0",
+                "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0",
+                "symfony/deprecation-contracts": "^2.1 || ^3.0",
+                "symfony/http-foundation": "^4.4 || ^5.4 || ^6.0",
+                "symfony/http-kernel": "^4.4 || ^5.4 || ^6.0",
+                "symfony/polyfill-php80": "^1.15",
+                "symfony/property-access": "^4.4 || ^5.4 || ^6.0",
+                "symfony/routing": "^4.4 || ^5.4 || ^6.0"
+            },
+            "conflict": {
+                "pagerfanta/twig": "<3.1",
+                "twig/twig": "<1.35 || >=2.0,<2.5",
+                "white-october/pagerfanta-bundle": "*"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.8",
+                "jms/serializer": "^3.0",
+                "jms/serializer-bundle": "^3.0 || ^4.0",
+                "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+                "pagerfanta/twig": "^3.1",
+                "phpstan/extension-installer": "^1.2",
+                "phpstan/phpstan": "1.10.15",
+                "phpstan/phpstan-phpunit": "1.3.13",
+                "phpstan/phpstan-symfony": "1.2.19",
+                "phpunit/phpunit": "9.6.8",
+                "symfony/phpunit-bridge": "^5.4 || ^6.0",
+                "symfony/serializer": "^4.4 || ^5.4 || ^6.0",
+                "symfony/translation": "^4.4 || ^5.4 || ^6.0",
+                "symfony/twig-bridge": "^4.4 || ^5.4 || ^6.0",
+                "symfony/twig-bundle": "^4.4 || ^5.4 || ^6.0",
+                "twig/twig": "^1.35 || ^2.5 || ^3.0"
+            },
+            "suggest": {
+                "jms/serializer-bundle": "To use the Pagerfanta class with the JMS Serializer",
+                "symfony/serializer": "To use the Pagerfanta class with the Symfony Serializer",
+                "symfony/translation": "To use the Twig templates with translation support",
+                "twig/twig": "To integrate Pagerfanta with Twig through extensions"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "BabDev\\PagerfantaBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Bundle integrating Pagerfanta with Symfony",
+            "keywords": [
+                "pagerfanta",
+                "pagination",
+                "symfony"
+            ],
+            "support": {
+                "issues": "https://github.com/BabDev/PagerfantaBundle/issues",
+                "source": "https://github.com/BabDev/PagerfantaBundle/tree/v3.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/mbabker",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-06-01T01:04:54+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "2.0.1",
@@ -1935,6 +2018,141 @@
                 }
             ],
             "time": "2023-02-06T13:44:46+00:00"
+        },
+        {
+            "name": "pagerfanta/core",
+            "version": "v3.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pagerfanta/core.git",
+                "reference": "a995f69ff9af64a45c3dc3d8217100624ae214f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pagerfanta/core/zipball/a995f69ff9af64a45c3dc3d8217100624ae214f2",
+                "reference": "a995f69ff9af64a45c3dc3d8217100624ae214f2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.4 || ^8.0",
+                "symfony/deprecation-contracts": "^2.1 || ^3.0",
+                "symfony/polyfill-php80": "^1.15"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.6 || ^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pagerfanta\\": "./"
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Core Pagerfanta API",
+            "keywords": [
+                "pagerfanta"
+            ],
+            "support": {
+                "source": "https://github.com/Pagerfanta/core/tree/v3.8.0"
+            },
+            "time": "2023-04-15T16:39:14+00:00"
+        },
+        {
+            "name": "pagerfanta/doctrine-collections-adapter",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pagerfanta/doctrine-collections-adapter.git",
+                "reference": "ef2a7e14d24b3c99eda490aa5b44332cabfe3141"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pagerfanta/doctrine-collections-adapter/zipball/ef2a7e14d24b3c99eda490aa5b44332cabfe3141",
+                "reference": "ef2a7e14d24b3c99eda490aa5b44332cabfe3141",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/collections": "^1.8 || ^2.0",
+                "pagerfanta/core": "^3.7 || ^4.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pagerfanta\\Doctrine\\Collections\\": "./"
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Pagerfanta adapter for Doctrine Collections",
+            "keywords": [
+                "collections",
+                "doctrine",
+                "pagerfanta"
+            ],
+            "support": {
+                "source": "https://github.com/Pagerfanta/doctrine-collections-adapter/tree/v4.2.0"
+            },
+            "time": "2023-07-10T22:06:56+00:00"
+        },
+        {
+            "name": "pagerfanta/twig",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pagerfanta/twig.git",
+                "reference": "7284d6ff3537e42c36d94bfba8659d7791102853"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pagerfanta/twig/zipball/7284d6ff3537e42c36d94bfba8659d7791102853",
+                "reference": "7284d6ff3537e42c36d94bfba8659d7791102853",
+                "shasum": ""
+            },
+            "require": {
+                "pagerfanta/core": "^3.7 || ^4.0",
+                "php": "^8.1",
+                "twig/twig": "^2.13 || ^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pagerfanta\\Twig\\": "./"
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Twig integration for Pagerfanta",
+            "keywords": [
+                "pagerfanta"
+            ],
+            "support": {
+                "source": "https://github.com/Pagerfanta/twig/tree/v4.2.0"
+            },
+            "time": "2023-07-10T22:06:56+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -7868,6 +8086,77 @@
             "time": "2023-02-14T08:03:56+00:00"
         },
         {
+            "name": "symfony/webpack-encore-bundle",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/webpack-encore-bundle.git",
+                "reference": "150fe022740fef908f4ca3d5950ce85ab040ec76"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/webpack-encore-bundle/zipball/150fe022740fef908f4ca3d5950ce85ab040ec76",
+                "reference": "150fe022740fef908f4ca3d5950ce85ab040ec76",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1.0",
+                "symfony/asset": "^5.4 || ^6.2",
+                "symfony/config": "^5.4 || ^6.2",
+                "symfony/dependency-injection": "^5.4 || ^6.2",
+                "symfony/http-kernel": "^5.4 || ^6.2",
+                "symfony/service-contracts": "^1.1.9 || ^2.1.3 || ^3.0"
+            },
+            "require-dev": {
+                "symfony/framework-bundle": "^5.4 || ^6.2",
+                "symfony/phpunit-bridge": "^5.4 || ^6.2",
+                "symfony/twig-bundle": "^5.4 || ^6.2",
+                "symfony/web-link": "^5.4 || ^6.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "thanks": {
+                    "name": "symfony/webpack-encore",
+                    "url": "https://github.com/symfony/webpack-encore"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\WebpackEncoreBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Integration with your Symfony app & Webpack Encore!",
+            "support": {
+                "issues": "https://github.com/symfony/webpack-encore-bundle/issues",
+                "source": "https://github.com/symfony/webpack-encore-bundle/tree/v2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-05-31T14:28:33+00:00"
+        },
+        {
             "name": "symfony/yaml",
             "version": "v5.4.23",
             "source": {
@@ -7941,6 +8230,56 @@
                 }
             ],
             "time": "2023-04-23T19:33:36+00:00"
+        },
+        {
+            "name": "symfonycasts/reset-password-bundle",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SymfonyCasts/reset-password-bundle.git",
+                "reference": "6601f15fce7a4934bc9570f76feaf1b93536b1a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/6601f15fce7a4934bc9570f76feaf1b93536b1a7",
+                "reference": "6601f15fce7a4934bc9570f76feaf1b93536b1a7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=7.2.5",
+                "symfony/config": "^5.4 | ^6.0",
+                "symfony/dependency-injection": "^5.4 | ^6.0",
+                "symfony/deprecation-contracts": "^2.2 | ^3.0",
+                "symfony/http-kernel": "^5.4 | ^6.0"
+            },
+            "conflict": {
+                "doctrine/orm": "<2.7",
+                "php": ">=8.1 <8.1.10"
+            },
+            "require-dev": {
+                "doctrine/annotations": "^1.0",
+                "doctrine/doctrine-bundle": "^2.0.3",
+                "doctrine/orm": "^2.7",
+                "symfony/framework-bundle": "^5.4 | ^6.0",
+                "symfony/phpunit-bridge": "^5.4 | ^6.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "SymfonyCasts\\Bundle\\ResetPassword\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Symfony bundle that adds password reset functionality.",
+            "support": {
+                "issues": "https://github.com/SymfonyCasts/reset-password-bundle/issues",
+                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.17.0"
+            },
+            "time": "2023-02-02T15:11:33+00:00"
         },
         {
             "name": "twig/extra-bundle",
@@ -8351,6 +8690,73 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "dama/doctrine-test-bundle",
+            "version": "v7.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dmaicher/doctrine-test-bundle.git",
+                "reference": "175b47153609a369117d97d36049b8a8c3b69dc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dmaicher/doctrine-test-bundle/zipball/175b47153609a369117d97d36049b8a8c3b69dc1",
+                "reference": "175b47153609a369117d97d36049b8a8c3b69dc1",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.3",
+                "doctrine/doctrine-bundle": "^2.2.2",
+                "ext-json": "*",
+                "php": "^7.3 || ^8.0",
+                "psr/cache": "^1.0 || ^2.0 || ^3.0",
+                "symfony/cache": "^5.4 || ^6.0",
+                "symfony/framework-bundle": "^5.4 || ^6.0"
+            },
+            "require-dev": {
+                "behat/behat": "^3.0",
+                "doctrine/cache": "^1.12",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^8.0 || ^9.0 || ^10.0",
+                "symfony/phpunit-bridge": "^6.0",
+                "symfony/process": "^5.4 || ^6.0",
+                "symfony/yaml": "^5.4 || ^6.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DAMA\\DoctrineTestBundle\\": "src/DAMA/DoctrineTestBundle"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Maicher",
+                    "email": "mail@dmaicher.de"
+                }
+            ],
+            "description": "Symfony bundle to isolate doctrine database tests and improve test performance",
+            "keywords": [
+                "doctrine",
+                "isolation",
+                "performance",
+                "symfony",
+                "tests"
+            ],
+            "support": {
+                "issues": "https://github.com/dmaicher/doctrine-test-bundle/issues",
+                "source": "https://github.com/dmaicher/doctrine-test-bundle/tree/v7.2.1"
+            },
+            "time": "2023-02-07T10:02:27+00:00"
+        },
         {
             "name": "myclabs/deep-copy",
             "version": "1.11.1",

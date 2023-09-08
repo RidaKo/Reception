@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(224, 224, 224);
+}
+
+.btn-default {
+ background-color: rgb(151, 170, 253);
+}
+
+.auto-width-column {
+    width: 1%; /* Set the width to 1% to allow it to adapt to content width */
+    white-space: nowrap; /* Prevent line breaks in the column content */
+}

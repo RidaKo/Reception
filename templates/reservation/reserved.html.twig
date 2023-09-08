@@ -1,17 +1,34 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Complete{% endblock %}
 
 {% block body %}
-<h1>{% if reservation == true %}
-Reservation complete
-{% else %}Reservation has been made before {% endif %}</h1><br>
-Your serial code: {{customer.reservationCode}}<br>
-Your appointment time: {{customer.appointmentTime|date('Y-m-d H:i:s')}}
-{% if reservation == false %}
-<a href="{{ path('app_cancel_visit', {'email': customer.email}) }}">Cancel visit</a><br>
-<a href="{{ path('app_print_pdf', {'email': customer.email}) }}">Download pdf</a>
-    
-{% endif %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="display-4">
+                        {% if reservation == true %}
+                            Reservation Complete
+                        {% elseif customer.state == 'current'%}
+                            Session in progress
+                        {% else %}
+                            Reservation Already Made
+                        {% endif %}
+                    </h1>
+                    <p class="lead">
+                        Your Serial Code: <b>{{ customer.reservationCode }}</b>
+                        <br>
+                        Your Appointment Time: <b>{{ customer.appointmentTime|date('Y-m-d H:i:s') }}</b>
+                    </p>
+                    <div class="btn-group" role="group">
+                        <a href="{{ path('app_cancel_visit', {'email': customer.email}) }}" class="btn btn-danger">Cancel Visit</a>
+                        <a href="{{ path('app_print_pdf', {'email': customer.email}) }}" class="btn btn-primary">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

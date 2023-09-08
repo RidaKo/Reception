@@ -4,6 +4,56 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-<h1>Home</h1><br>
-<div><a href={{ path('app_reservation') }}>Make or check an existing reservation</a></div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-6 text-end"><h1>Home</h1></div>
+<div class="col-5 text-end">
+{% if app.user %}
+<a href={{path('app_specialist_logout')}} class="btn btn-default" role="button">Logout</a></div>
+{% endif %}
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        
+        
+            {% if app.user %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Display screen</h5>
+                            <a class="btn btn-default" href={{path('app_display')}}>Go to display</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Management Home</h5>
+                            <a class="btn btn-default" href="{{ path('app_management') }}">Go to Management</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Make or check an existing reservation</h5>
+                            <a class="btn btn-default" href={{ path('app_reservation') }}>Reserve Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Specialist login</h5>
+                            <a class="btn btn-default" href="{{ path('app_specialist_login') }}">Login as Specialist</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        
+    </div>
+</div>
 {% endblock %}

@@ -40,21 +40,35 @@ class ReservationController extends AbstractController
     {
         $email = $request->request->get('email');
         $customerRepository = $entityManagerInterface->getRepository(Customer::class);
-        if(!$customerRepository->findOneBy(['email' => $email]))
+
+        if(!$customerRepository->findOneBy(['email' => $email]) || $customerRepository->findOneBy( ['email'=>$email])->getState() == 'finished')
         {
-        $appointment_time = $customerRepository->findCustomerWithLatestAppointmentTime()->getAppointmentTime()->modify('+ 30 minutes');
-        
+
+         $latest_customer = $customerRepository->findCustomerWithLatestAppointmentTime();
+         $appointment_time = $latest_customer->getAppointmentTime()->modify('+ 30 minutes');
+
+         if($appointment_time>= new \DateTime($appointment_time->format('Y-m-d').'19:00:00') && $appointment_time>=(new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day'))
+         {
+            $appointment_time = (new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day');
+         }
+         $specialist = $latest_customer->getSpecialist();
+
+
         if($holidayApi->checkIfReservationTimeIsHoliday($appointment_time))
         {
             $appointment_time = $appointment_time->modify('+1 day');
             //return $this->render('reservation/reservation.html.twig', ['holday' => true]);
         }
+
+        $rez_code = $customerRepository->getLatestReservationNrPlusOne();
+        
         
         $customer = new Customer();
         $customer->setEmail($request->request->get('email'))
-        ->setReservationCode(faker()->regexify('[A-Z0-9]{10}'))
+        ->setReservationCode($rez_code)
         ->setState('reserved')
-        ->setAppointmentTime($appointment_time);
+        ->setAppointmentTime($appointment_time)
+        ->setSpecialist($specialist);
 
         $entityManagerInterface->persist($customer);
         $entityManagerInterface->flush();
@@ -72,7 +86,9 @@ class ReservationController extends AbstractController
         else{
             $customer = $customerRepository->findOneBy(['email' => $email]);
             $reservation=false;
+            
         }
+        
 
         
         //Calculation

@@ -3,7 +3,9 @@
 namespace App\DataFixtures;
 
 use App\Entity\Customer;
+use App\Entity\Specialist;
 use App\Factory\CustomerFactory;
+use App\Factory\SpecialistFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -13,7 +15,11 @@ class AppFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        CustomerFactory::createMany(10);
+        
+
+        SpecialistFactory::createMany(5);
+        SpecialistFactory::createOne(['email' => '', 'password' =>'']);
+        CustomerFactory::createMany(50, function() {return ['specialist' => SpecialistFactory::random()]; });
 
 
         $manager->flush();

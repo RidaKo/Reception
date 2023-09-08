@@ -1,11 +1,19 @@
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Complete{% endblock %}
 
 {% block body %}
-Visit has been cancelled.<br>
-
-<a href={{path('app_homepage')}}> Return to homepage</a>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="display-4">Visit Canceled</h1>
+                    <p class="lead">Your visit has been canceled.</p>
+                    <a href="{{ path('app_homepage') }}" class="btn btn-primary">Return to Homepage</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

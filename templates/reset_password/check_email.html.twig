@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h1 class="display-4">Password Reset Email Sent</h1>
+                    <p>
+                        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
+                        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                    </p>
+                    <p>If you don't receive an email, please check your spam folder or <a href="{{ path('app_forgot_password_request') }}" class="btn btn-primary">try again</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

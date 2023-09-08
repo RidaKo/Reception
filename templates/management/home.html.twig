@@ -1,0 +1,50 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Complete{% endblock %}
+
+{% block body %}
+
+{% if error is defined %}
+    <h2 color='red'>{{error}}</h2>
+{% endif %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 ">
+        <h1>Home</h1>
+        </div>
+        <div class="col-6 text-end">
+        <a href={{path('app_specialist_logout')}} class="btn btn-default" role="button">Logout</a></div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Email</td>
+        <td>Reservation Code</td>
+        <td>Reservation Time</td>
+        <td>State</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for customer in pager %}
+        <tr>
+        <td>{{customer.email}}</td>
+        <td>{{customer.reservationCode}}</td>
+        <td>{{customer.appointmentTime|date('Y-m-d H:i:s')}}</td>
+        <td>{{customer.state}}</td>
+        <td class="auto-width-column"><a href={{path('app_management', {'command': 'current', 'id': customer.id})}} class="btn btn-default"> In progress</a></td>
+        <td class="auto-width-column"><a href={{path('app_management', {'command': 'finished', 'id': customer.id})}} class="btn btn-default">Finish appointment</a></td>
+        <td class="auto-width-column"><a href={{path('app_management', {'command': 'canceled', 'id': customer.id})}} class="btn btn-default">Cancel</a></td>
+        </tr>
+    {% endfor%}
+    </tbody>
+    
+</table>
+{{pagerfanta(pager)}}
+
+
+
+{% endblock %}

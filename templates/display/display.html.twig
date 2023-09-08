@@ -1,26 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Display!{% endblock %}
+{% block title %}Display{% endblock %}
 
 {% block body %}
-<meta http-equiv="refresh" content="5">
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Dispaly! ✅</h1>
-    
-    <ul>
-    {% for current_visitor in current_visitors %}
-        <li>{{current_visitor.reservationCode}} </li>
-    {% endfor %}
-    </ul>
-    <ul>
-    {% for upcoming_visitor in upcoming_visitors %}
-        <li>{{upcoming_visitor.reservationCode}} </li>
-    {% endfor %}
-    </ul>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    <meta http-equiv="refresh" content="5">
+                    <h1 class="display-4">Display</h1>
+                    
+                    <h2>Current Visitors</h2>
+                    <ul class="list-group">
+                        {% for current_visitor in current_visitors %}
+                            <li class="list-group-item">{{ current_visitor.reservationCode }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <h2>Upcoming Visitors</h2>
+                    <ul class="list-group">
+                        {% for upcoming_visitor in upcoming_visitors %}
+                            <li class="list-group-item">{{ upcoming_visitor.reservationCode }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
+

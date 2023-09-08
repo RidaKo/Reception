@@ -1,24 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReservationController!{% endblock %}
+{% block title %}Reservations{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    {% if cancelled is defined %}
-    Visit has been cacelled. 
-        
-    {% endif %}
-    <h1>Hello ! ✅</h1>
-    <form action="{{ path('app_reserved')}}" method="post">
-    <input type="email" name='email' ></input>
-    <input type="submit">
-    </form>
-    
-    
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body">
+                    {% if cancelled is defined %}
+                        <p class="alert alert-danger">Visit has been canceled.</p>
+                    {% endif %}
+                    <h1 class="display-4">Make a Reservation</h1>
+                    <form action="{{ path('app_reserved') }}" method="post" class="mt-4">
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
+
