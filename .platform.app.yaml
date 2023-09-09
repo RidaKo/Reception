@@ -9,6 +9,7 @@ runtime:
         - sodium
         - ctype
         - iconv
+        - pdo_mysql
         
 
 #variables:
