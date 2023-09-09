@@ -1,5 +1,2 @@
-
 database:
-    type: mysql:10.11database:
-    type: postgresql:15
-    disk: 1024
+    type: mysql:latest
