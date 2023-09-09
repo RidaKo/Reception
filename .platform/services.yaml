@@ -1,2 +1,2 @@
 database:
-    type: mysql:8.1
+    type: mysql:10.11
