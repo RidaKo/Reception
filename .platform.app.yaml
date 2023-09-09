@@ -52,8 +52,11 @@ hooks:
         curl -fs https://get.symfony.com/cloud/configurator | bash
         
         NODE_VERSION=18 symfony-build
+        
 
     deploy: |
         set -x -e
 
         symfony-deploy
+
+        php bin/console doctrine:migrations:migrate
