@@ -21,7 +21,7 @@ class Specialist implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = ['ROLE_USER', 'ROLE_SPECIALIST'];
+    private array $roles = [];
 
     /**
      * @var string The hashed password
@@ -83,6 +83,8 @@ class Specialist implements UserInterface, PasswordAuthenticatedUserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_SPECIALIST';
 
         return array_unique($roles);
     }

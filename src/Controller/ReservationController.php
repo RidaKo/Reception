@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Repository\CustomerRepository;
+use App\Repository\SpecialistRepository;
 use App\Service\HolidayApi;
+use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -36,51 +38,60 @@ class ReservationController extends AbstractController
     }
     
     #[Route('/reserved', name:'app_reserved')]
-    public function reserved(MailerInterface $mailerInterface, EntityManagerInterface $entityManagerInterface, Request $request, HolidayApi $holidayApi):Response
+    public function reserved(MailerInterface $mailerInterface, EntityManagerInterface $entityManagerInterface, Request $request, HolidayApi $holidayApi, SpecialistRepository $specialistRepository):Response
     {
         $email = $request->request->get('email');
         $customerRepository = $entityManagerInterface->getRepository(Customer::class);
 
         if(!$customerRepository->findOneBy(['email' => $email]) || $customerRepository->findOneBy( ['email'=>$email])->getState() == 'finished')
         {
+            if($customerRepository->findAll() == [])
+            {
+                $appointment_time = new DateTime();
+                $specialist_array= $specialistRepository->findAll();
+                $specialist = $specialist_array[array_rand($specialist_array)];
+            }
+            else
+            {
+                $latest_customer = $customerRepository->findCustomerWithLatestAppointmentTime();
+                $appointment_time = $latest_customer->getAppointmentTime()->modify('+ 30 minutes');
+                $specialist = $latest_customer->getSpecialist();
+            }
+            
 
-         $latest_customer = $customerRepository->findCustomerWithLatestAppointmentTime();
-         $appointment_time = $latest_customer->getAppointmentTime()->modify('+ 30 minutes');
-
-         if($appointment_time>= new \DateTime($appointment_time->format('Y-m-d').'19:00:00') && $appointment_time>=(new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day'))
-         {
-            $appointment_time = (new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day');
-         }
-         $specialist = $latest_customer->getSpecialist();
+            if($appointment_time>= new \DateTime($appointment_time->format('Y-m-d').'19:00:00') && $appointment_time>=(new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day'))
+            {
+                $appointment_time = (new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day');
+            }
 
 
-        if($holidayApi->checkIfReservationTimeIsHoliday($appointment_time))
-        {
-            $appointment_time = $appointment_time->modify('+1 day');
-            //return $this->render('reservation/reservation.html.twig', ['holday' => true]);
-        }
+            if($holidayApi->checkIfReservationTimeIsHoliday($appointment_time))
+            {
+                $appointment_time = $appointment_time->modify('+1 day');
+                //return $this->render('reservation/reservation.html.twig', ['holday' => true]);
+            }
 
-        $rez_code = $customerRepository->getLatestReservationNrPlusOne();
-        
-        
-        $customer = new Customer();
-        $customer->setEmail($request->request->get('email'))
-        ->setReservationCode($rez_code)
-        ->setState('reserved')
-        ->setAppointmentTime($appointment_time)
-        ->setSpecialist($specialist);
+            $rez_code = $customerRepository->getLatestReservationNrPlusOne();
+            
+            
+            $customer = new Customer();
+            $customer->setEmail($request->request->get('email'))
+            ->setReservationCode($rez_code)
+            ->setState('reserved')
+            ->setAppointmentTime($appointment_time)
+            ->setSpecialist($specialist);
 
-        $entityManagerInterface->persist($customer);
-        $entityManagerInterface->flush();
-        $reservation = true;
+            $entityManagerInterface->persist($customer);
+            $entityManagerInterface->flush();
+            $reservation = true;
 
-        $email = (new Email())
-        ->from('mail@mailer.com')
-        ->to($request->request->get('email'))
-        ->subject('Registration confirmation')
-        ->text("Your reservation code {$customer->getReservationCode()}.");
-        //dump($email);
-        $mailerInterface->send($email);
+            $email = (new Email())
+            ->from('mail@mailer.com')
+            ->to($request->request->get('email'))
+            ->subject('Registration confirmation')
+            ->text("Your reservation code {$customer->getReservationCode()}.");
+            //dump($email);
+            $mailerInterface->send($email);
 
         }
         else{

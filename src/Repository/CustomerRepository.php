@@ -40,7 +40,9 @@ class CustomerRepository extends ServiceEntityRepository
 
     public function getLatestReservationNrPlusOne():int
     {
-        return intval($this->findOneBy([], ['reservation_code' => 'DESC'])->getReservationCode())+1;
+        $query_rez = $this->findOneBy([], ['reservation_code' => 'DESC']);
+        if($query_rez==null)return 0;
+        return intval($query_rez->getReservationCode())+1;
     }
     
 
