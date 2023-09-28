@@ -2,6 +2,9 @@ name: app
 
 type: php:8.2
 
+relationships:
+    database: "database:mysql"
+
 runtime:
     extensions:
         - apcu
@@ -61,3 +64,4 @@ hooks:
         symfony-deploy
 
         php bin/console doctrine:migrations:migrate
+    
