@@ -43,9 +43,9 @@ class ReservationController extends AbstractController
         $email = $request->request->get('email');
         $customerRepository = $entityManagerInterface->getRepository(Customer::class);
 
-        if(!$customerRepository->findOneBy(['email' => $email]) || $customerRepository->findOneBy( ['email'=>$email])->getState() == 'finished')
+        if(!$customerRepository->findOneBy(['email' => $email]) || in_array($customerRepository->findOneBy( ['email'=>$email])->getState(), ['finished', 'cancelled']))
         {
-            if($customerRepository->findAll() == [])
+            if($customerRepository->findAll() == [] || $customerRepository->findBy(['state' => 'reserved']) == null )
             {
                 $appointment_time = new DateTime();
                 $specialist_array= $specialistRepository->findAll();
@@ -86,11 +86,11 @@ class ReservationController extends AbstractController
             $reservation = true;
 
             $email = (new Email())
-            ->from('mail@mailer.com')
+            ->from('testporator@gmail.com')
             ->to($request->request->get('email'))
             ->subject('Registration confirmation')
-            ->text("Your reservation code {$customer->getReservationCode()}.");
-            //dump($email);
+            ->text("Your reservation code: {$customer->getReservationCode()}.");
+            //dd($email);
             $mailerInterface->send($email);
 
         }
