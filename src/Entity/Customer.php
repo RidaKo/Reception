@@ -21,7 +21,7 @@ class Customer
     private ?\DateTimeInterface $appointment_time = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $reservation_code = null;
+    private ?int $reservation_code = null;
 
     #[ORM\Column(length: 255)]
     private ?string $state = null;
