@@ -86,7 +86,7 @@ class ReservationController extends AbstractController
             $reservation = true;
 
             $email = (new Email())
-            ->from('testporator@gmail.com')
+            ->from('testporatorrr@aaaagemail.com')
             ->to($request->request->get('email'))
             ->subject('Registration confirmation')
             ->text("Your reservation code: {$customer->getReservationCode()}.");
