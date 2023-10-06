@@ -15,15 +15,15 @@ runtime:
         - pdo_mysql
         
 
-#variables:
-#    php:
-#        # uncomment on PHP 7.4+
-#        #opcache.preload: config/preload.php
+variables:
+   php:
+       #uncomment on PHP 7.4+
+       opcache.preload: config/preload.php
 
 build:
     flavor: none
 
-disk: 512
+disk: 1024
 
 web:
     locations:
@@ -63,5 +63,5 @@ hooks:
 
         symfony-deploy
 
-        php bin/console doctrine:migrations:migrate
+        symfony console doctrine:migrations:migrate
     
