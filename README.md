@@ -51,7 +51,7 @@ The project has two main functionalities:
 1) Registering for an appointment
 2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
 If a specialist is logged in the home page will display different options than default.
-- For a specialist to register, a manual entry must be made in the database that contains a secret key with the command `
+- For a specialist to register, a manual entry must be made in the database that contains a secret key with the command: `INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');`
 
 ## Contributing
 There is no way to contribute
