@@ -10,11 +10,12 @@
 {% endif %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-6 ">
-        <h1>Home</h1>
+        <div class="col-6">
+            <h1>Home</h1>
         </div>
         <div class="col-6 text-end">
-        <a href={{path('app_specialist_logout')}} class="btn btn-default" role="button">Logout</a></div>
+            <a href="{{ path('app_homepage') }}" class="btn btn-default" role="button">Home</a>
+            <a href="{{ path('app_specialist_logout') }}" class="btn btn-default" role="button">Logout</a>
         </div>
     </div>
 </div>
