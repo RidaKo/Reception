@@ -16,7 +16,7 @@ Follow these steps to set up and run the project on your local machine.
 
     ```bash
     git clone https://github.com/RidaKo/Reception.git
-    cd hospital
+    cd Reception
     ```
 
 2. Install dependencies using Composer:
@@ -26,30 +26,41 @@ Follow these steps to set up and run the project on your local machine.
     ```
 
 3. Configure the database and mailer:
+    1. While using docker
+       Use the command
+       ```bash
+       docker-compose up -d
+       ```
 
+    2. If docker is not avaliable
     - Configure the database connection parameters in the .env file.
     - Configure the mailer dsn in the .env file.
 
-4. Create the database and schema:
+4. Migrate migrations
+   ```bash
+   symfony console doctrine:migrations:migrate
+   ```
+6. Install and run yarn
+   ```bash
+   yarn install
+   yarn watch
+   ```
 
-    ```bash
-    php bin/console doctrine:database:create
-    php bin/console doctrine:schema:create
-    ```
-
-5. Run the Symfony development server:
+7. Run the Symfony development server:
 
     ```bash
     symfony server:start
     ```
 
-6. Access the application in your browser at the the provided link in the console.
+8. Access the application in your browser at the the provided link in the console.
 
 ## Usage
 
 The project has two main functionalities:
 1) Registering for an appointment
 2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
+
+While using docker this command connects to the database: `docker-compose exec database mysql -u root --password=password`
 If a specialist is logged in the home page will display different options than default.
 - For a specialist to register, a manual entry must be made in the database that contains a secret key with the command: `INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');`
 - 
