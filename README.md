@@ -34,7 +34,8 @@ Follow these steps to set up and run the project on your local machine.
 
     2. If docker is not avaliable
     - Configure the database connection parameters in the .env file.
-    - Configure the mailer dsn in the .env file.
+
+- Configure the mailer dsn in the .env file.
 
 4. Migrate migrations
    ```bash
