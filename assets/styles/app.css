@@ -10,3 +10,18 @@ body {
     width: 1%; /* Set the width to 1% to allow it to adapt to content width */
     white-space: nowrap; /* Prevent line breaks in the column content */
 }
+
+.btn-danger {
+    background-color:#3482f8;
+    border-color: #5b9bfa;
+}
+
+.btn-success{
+    background-color: #5b9bfa;
+
+}
+
+table.border-rounded{
+    border-radius: 20px; 
+    overflow: hidden;
+  }
