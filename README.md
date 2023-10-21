@@ -61,7 +61,7 @@ The project has two main functionalities:
 1) Registering for an appointment
 2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
 
-#### Tips
+#### Registration setup
 - While using docker this command connects to the database: 
 ```bash
 docker-compose exec database mysql -u root --password=password
@@ -72,8 +72,6 @@ docker-compose exec database mysql -u root --password=password
   INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
   ```
   > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
-
-- If a specialist is logged, the home page will display different options than default.
 
 
 #### Pictures with explanations showing all the different web pages:
@@ -97,7 +95,7 @@ This is the login page where you are directed after clicking the "Login as a spe
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b08ece9e-b60a-4393-81b5-b848d39f45ad)
 
 ---
-This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the tips section on how to create a secret key.
+This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup] (#Registration setup) section on how to create a secret key.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/9f4f5227-1f99-4ff6-8951-8a8d12d5a77c)
 
 ---
