@@ -105,7 +105,7 @@ This is where you are directed after clicking forgot password on the login page.
 
 ---
 This is the specialist home page, where you are directed after logging in. Here, the specialist can manage his customer appointments by clicking the buttons on the table rows where their credentials reside. The numbered buttons can be used to switch pages. Home leads to the general home page, and logout logs the specialist out.
-![image](https://github.com/RidaKo/Reception/assets/113443126/70c6d89f-4bd7-4092-b940-703307354888)
+![image](https://github.com/RidaKo/Reception/assets/113443126/d98fb413-3a81-4e8f-9b24-b5f78a8d49a6)
 
 ---
 This is the general homepage once again, but this time the available options have changed due to the fact that a specialist is logged in. You can choose to either open the display screen or return to the specialist home page.
