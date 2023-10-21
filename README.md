@@ -95,7 +95,7 @@ This is the login page where you are directed after clicking the "Login as a spe
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b08ece9e-b60a-4393-81b5-b848d39f45ad)
 
 ---
-This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup](#-registration-setup) section on how to create a secret key.
+This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup](#registration-setup) section on how to create a secret key.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/9f4f5227-1f99-4ff6-8951-8a8d12d5a77c)
 
 ---
