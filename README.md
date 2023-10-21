@@ -16,7 +16,7 @@ Follow these steps to set up and run the project on your local machine.
 
     ```bash
     git clone https://github.com/RidaKo/Reception.git
-    cd hospital
+    cd Reception
     ```
 
 2. Install dependencies using Composer:
@@ -26,52 +26,102 @@ Follow these steps to set up and run the project on your local machine.
     ```
 
 3. Configure the database and mailer:
+    1. While using docker
+       Use the command
+       ```bash
+       docker-compose up -d
+       ```
 
-    - Configure the database connection parameters in the .env file.
-    - Configure the mailer dsn in the .env file.
+    2. If docker is not avaliable:
+       Configure the database connection parameters in the .env file.
 
-4. Create the database and schema:
+- Configure the mailer dsn in the .env file.
 
-    ```bash
-    php bin/console doctrine:database:create
-    php bin/console doctrine:schema:create
-    ```
+4. Migrate migrations
+   ```bash
+   symfony console doctrine:migrations:migrate
+   ```
+6. Install and run yarn
+   ```bash
+   yarn install
+   yarn watch
+   ```
 
-5. Run the Symfony development server:
+7. Run the Symfony development server:
 
     ```bash
     symfony server:start
     ```
 
-6. Access the application in your browser at the the provided link in the console.
+8. Access the application in your browser at the the provided link in the console.
 
 ## Usage
 
 The project has two main functionalities:
 1) Registering for an appointment
 2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
-If a specialist is logged in the home page will display different options than default.
-- For a specialist to register, a manual entry must be made in the database that contains a secret key with the command: `INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');`
-- 
+
+#### Tips
+- While using docker this command connects to the database: 
+```bash
+docker-compose exec database mysql -u root --password=password
+```
+- For a specialist to register, a manual entry must be made in the database that contains a `secret key` with the command:
+  ```bash
+  use main;
+  INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
+  ```
+  > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
+
+- If a specialist is logged, the home page will display different options than default.
+
+
+#### Pictures with explanations showing all the different web pages:
+This is the home page, which directs to two different web pages: one where a customer may make a reservation and another where a specialist can login or choose to register.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b2cdf6d8-d215-448d-8cd5-ef4b97aa28cf)
+
+---
+This image shows the page where the customer is directed after clicking "reserve now". Here, he can book an appointment by typing in their email and pressing submit. After submission, you will receive an email to the address that was specified.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/d221cdbc-7683-4fe8-bb8d-bfa61a2af2c6)
+
+---
+This image shows the page where you are directed after a reservation has been made. Here you can download a pdf of your reservation details or cancel your reservation.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/e646d832-0a43-4967-8b30-72ec99203830)
+
+---
+This is where you are directed after canceling a reservation and can return to the home page.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/8e4c9fda-33c1-4d84-8cc7-1c4ee0c01950)
+
+---
+This is the login page where you are directed after clicking the "Login as a specialist button" on the homepage. Here, you should submit your login details. If you do not have an account, you can choose to register or change your password if you have forgotten it.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b08ece9e-b60a-4393-81b5-b848d39f45ad)
+
+---
+This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the tips section on how to create a secret key.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/9f4f5227-1f99-4ff6-8951-8a8d12d5a77c)
+
+---
+This is where you are directed after clicking forgot password on the login page. Here, you need to enter your email and click submit. After receiving the email, click the provided link, which will direct you to a page where you will be allowed to change your password.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/abae7f25-636f-49c5-a4ed-8abfb9e3000b)
+
+---
+This is the specialist home page, where you are directed after logging in. Here, the specialist can manage his customer appointments by clicking the buttons on the table rows where their credentials reside. The numbered buttons can be used to switch pages. Home leads to the general home page, and logout logs the specialist out.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/70c6d89f-4bd7-4092-b940-703307354888)
+
+---
+This is the general homepage once again, but this time the available options have changed due to the fact that a specialist is logged in. You can choose to either open the display screen or return to the specialist home page.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/99a08c5a-1a5c-40eb-8700-0b6a8fd247de)
+
+---
+This image shows the page where you are directed after clicking "display". Here, we can see the upcoming appointments and the current appointments.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/ae3a372d-774d-4443-a202-088e391bbba6)
-
-
 
 
 ## Contributing
 There is no way to contribute
 
 ## License
-The project currently does not have any liscencing.
+The project currently does not have any license.
 
 ## Acknowledgments
 Big thanks to Gediminas for his assistance over the whole project.
