@@ -8,7 +8,8 @@ Follow these steps to set up and run the project on your local machine.
 
 - PHP (version 7.4 or higher)
 - Composer
-- MySQL
+- Docker
+- MySQL (In docker)
 
 ### Installation
 
