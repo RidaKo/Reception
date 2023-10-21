@@ -68,7 +68,7 @@ If a specialist is logged in the home page will display different options than d
   ```
   INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');```
 
-#### Pictures showing all the different web pages.
+#### Pictures showing all the different web pages:
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b2cdf6d8-d215-448d-8cd5-ef4b97aa28cf)
 ![image](https://github.com/RidaKo/Reception/assets/113443126/d221cdbc-7683-4fe8-bb8d-bfa61a2af2c6)
 ![image](https://github.com/RidaKo/Reception/assets/113443126/e646d832-0a43-4967-8b30-72ec99203830)
