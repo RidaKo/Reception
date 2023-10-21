@@ -64,8 +64,11 @@ The project has two main functionalities:
 While using docker this command connects to the database: 
 `docker-compose exec database mysql -u root --password=password`
 If a specialist is logged in the home page will display different options than default.
-- For a specialist to register, a manual entry must be made in the database that contains a secret key with the command: `INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');`
+- For a specialist to register, a manual entry must be made in the database that contains a secret key with the command:
+  ```
+  INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');```
 
+#### Pictures showing all the different web pages.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b2cdf6d8-d215-448d-8cd5-ef4b97aa28cf)
 ![image](https://github.com/RidaKo/Reception/assets/113443126/d221cdbc-7683-4fe8-bb8d-bfa61a2af2c6)
 ![image](https://github.com/RidaKo/Reception/assets/113443126/e646d832-0a43-4967-8b30-72ec99203830)
