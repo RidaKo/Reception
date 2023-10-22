@@ -6,6 +6,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
+            {% if error is defined %}
+            <h1> There is a problem with your MESSENGER_DSN key in .env </h1>
+            {% else %}
+
             {% for flash_error in app.flashes('reset_password_error') %}
                 <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
             {% endfor %}
@@ -25,6 +29,8 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Send Password Reset Email</button>
             
             {{ form_end(requestForm) }}
+
+            {% endif %}
         </div>
     </div>
 </div>

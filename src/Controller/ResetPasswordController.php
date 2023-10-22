@@ -166,7 +166,12 @@ class ResetPasswordController extends AbstractController
             ])
         ;
 
-        $mailer->send($email);
+        try{
+            $mailer->send($email);
+        } catch(\Symfony\Component\Mailer\Exception\TransportExceptionInterface $e){
+            $error = true;
+            return $this->render('reset_password/request.html.twig', ['error' => $error]);
+        }
 
         // Store the token object in session for retrieval in check-email route.
         $this->setTokenObjectInSession($resetToken);
