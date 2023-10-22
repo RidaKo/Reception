@@ -90,8 +90,12 @@ class ReservationController extends AbstractController
             ->subject('Registration confirmation')
             ->html("<html> <h2>Reservation complete</h2> <br> Your reservation code: <b>{$customer->getReservationCode()}.</b> </html>");
             //dd($email);
-            $mailerInterface->send($email);
-
+            try{
+                $mailerInterface->send($email);
+            } catch(\Symfony\Component\Mailer\Exception\TransportExceptionInterface $e){
+                $error = true;
+                return $this->render('reservation/reservation.html.twig', ['error' => $error]);
+            }
         }
         else{
             $customer = $customerRepository->findOneBy(['email' => $email]);
