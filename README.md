@@ -37,6 +37,9 @@ Follow these steps to set up and run the project on your local machine.
        Configure the database connection parameters in the .env file.
 
 - Configure the mailer dsn in the .env file.
+  ```
+  MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
+  ```
 
 4. Migrate migrations
    ```bash
