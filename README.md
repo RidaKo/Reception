@@ -17,16 +17,10 @@ Follow these steps to set up and run the project on your local machine.
 
     ```bash
     git clone https://github.com/RidaKo/Reception.git
-    cd Reception
     ```
+    And then open the project in your code edditor.
 
-2. Install dependencies using Composer:
-
-    ```bash
-    composer install
-    ```
-
-3. Configure the database and mailer:
+2. Configure the database and mailer:
     1. While using docker
        Use the command
        ```bash
@@ -36,10 +30,19 @@ Follow these steps to set up and run the project on your local machine.
     2. If docker is not avaliable:
        Configure the database connection parameters in the .env file.
 
-- Configure the mailer dsn in the .env file.
+
+3. Install dependencies using Composer:
+
+    ```bash
+    composer install
+    ```
+    - If you get an DATABASE_URL missing error due to the variable not being expozed from docker. Just mannualy clear the cache with `symfony console cache:clear` command.
+
+4. Configure the mailer dsn in the .env file.
   ```
   MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
   ```
+> This `enter_your_provided_api_key_insted_of_this_sentence` should be replaced by your provided api key.
 
 4. Migrate migrations
    ```bash
@@ -51,21 +54,7 @@ Follow these steps to set up and run the project on your local machine.
    yarn watch
    ```
 
-7. Run the Symfony development server:
-
-    ```bash
-    symfony server:start
-    ```
-
-8. Access the application in your browser at the the provided link in the console.
-
-## Usage
-
-The project has two main functionalities:
-1) Registering for an appointment
-2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
-
-#### Registration setup
+7.  **Registration setup**
 - While using docker this command connects to the database: 
 ```bash
 docker-compose exec database mysql -u root --password=password
@@ -76,6 +65,25 @@ docker-compose exec database mysql -u root --password=password
   INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
   ```
   > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
+
+8. Run the Symfony development server:
+
+    ```bash
+    symfony server:start
+    ```
+
+9. Access the application in your browser at the the provided link in the console.
+
+## Usage
+
+The project has two main functionalities:
+1) Registering for an appointment
+2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
+
+#### Registration explanation
+Each time you want to register a specialist please repeat the seventh instalation step to create a secret key that will be used in the form when creating a specialist for authorization purposes.
+
+
 
 
 #### Pictures with explanations showing all the different web pages:
@@ -99,7 +107,7 @@ This is the login page where you are directed after clicking the "Login as a spe
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b08ece9e-b60a-4393-81b5-b848d39f45ad)
 
 ---
-This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup](#registration-setup) section on how to create a secret key.
+This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup](#registration-explanation) section on how to create a secret key.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/9f4f5227-1f99-4ff6-8951-8a8d12d5a77c)
 
 ---
