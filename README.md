@@ -15,7 +15,7 @@ PHP (version 8.2.5)
 
 1. Clone the repository:
 
-    ```bash
+    ```
     git clone https://github.com/RidaKo/Reception.git
     ```
     And then open the project in your code editor.
@@ -23,7 +23,7 @@ PHP (version 8.2.5)
 2. Configure the database and mailer:
     1. While using docker
        Use the command
-       ```bash
+       ```
        docker-compose up -d
        ```
 
@@ -33,7 +33,7 @@ PHP (version 8.2.5)
 
 3. Install dependencies using Composer:
 
-    ```bash
+    ```
     composer install
     ```
     - If you get an DATABASE_URL missing error due to the variable not being exposed from Docker, Just manually clear the cache with `symfony console cache:clear` command.
@@ -45,18 +45,18 @@ PHP (version 8.2.5)
 > This `enter_your_provided_api_key_insted_of_this_sentence` should be replaced by your provided api key.
 
 4. Migrate migrations
-   ```bash
+   ```
    symfony console doctrine:migrations:migrate
    ```
 6. Install and run yarn.
-   ```bash
+   ```
    yarn install
    yarn watch
    ```
 
 7.  **Registration setup**
 - While using Docker, this command connects to the database: 
-```bash
+```
 docker-compose exec database mysql -u root --password=password
 ```
 - For a specialist to register, a manual entry must be made in the database that contains a `secret key` with the command:
