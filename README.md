@@ -36,7 +36,8 @@ docker-compose up -d
 ```
 composer install
 ```
-    - If you get an DATABASE_URL missing error due to the variable not being exposed from Docker, Just manually clear the cache with `symfony console cache:clear` command.
+    - If you get an DATABASE_URL missing error due to the variable not being exposed from Docker, Just manually clear the cache with 
+    `symfony console cache:clear` command.
 
 4. Configure the mailer dsn in the .env file.
 ```
@@ -60,17 +61,17 @@ MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@defaul
 docker-compose exec database mysql -u root --password=password
 ```
 - For a specialist to register, a manual entry must be made in the database that contains a `secret key` with the command:
-  ```bash
-  use main;
-  INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
-  ```
+```
+use main;
+INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
+```
   > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
 
 8. Run the Symfony development server:
 
-    ```bash
-    symfony server:start
-    ```
+```
+symfony server:start
+```
 
 9. Access the application in your browser at the provided link in the console.
 
