@@ -15,17 +15,17 @@ PHP (version 8.2.5)
 
 1. Clone the repository:
 
-    ```
-    git clone https://github.com/RidaKo/Reception.git
-    ```
+```
+git clone https://github.com/RidaKo/Reception.git
+```
     And then open the project in your code editor.
 
 2. Configure the database and mailer:
     1. While using docker
        Use the command
-       ```
-       docker-compose up -d
-       ```
+```
+docker-compose up -d
+```
 
     2. If docker is not avaliable:
        Configure the database connection parameters in the .env file.
@@ -33,26 +33,26 @@ PHP (version 8.2.5)
 
 3. Install dependencies using Composer:
 
-    ```
-    composer install
-    ```
+```
+composer install
+```
     - If you get an DATABASE_URL missing error due to the variable not being exposed from Docker, Just manually clear the cache with `symfony console cache:clear` command.
 
 4. Configure the mailer dsn in the .env file.
-  ```
-  MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
-  ```
+```
+MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
+```
 > This `enter_your_provided_api_key_insted_of_this_sentence` should be replaced by your provided api key.
 
 4. Migrate migrations
-   ```
-   symfony console doctrine:migrations:migrate
-   ```
+ ```
+ symfony console doctrine:migrations:migrate
+ ```
 6. Install and run yarn.
-   ```
-   yarn install
-   yarn watch
-   ```
+ ```
+ yarn install
+ yarn watch
+ ```
 
 7.  **Registration setup**
 - While using Docker, this command connects to the database: 
