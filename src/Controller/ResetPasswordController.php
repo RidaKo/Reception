@@ -170,12 +170,18 @@ class ResetPasswordController extends AbstractController
             $mailer->send($email);
         } catch(\Symfony\Component\Mailer\Exception\TransportExceptionInterface $e){
             $error = true;
-            return $this->render('reset_password/request.html.twig', ['error' => $error]);
+            return $this->redirectToRoute('api_key_problem', ['error' => $error]);
         }
 
         // Store the token object in session for retrieval in check-email route.
         $this->setTokenObjectInSession($resetToken);
 
         return $this->redirectToRoute('app_check_email');
+    }
+
+    #[Route(path:'/apiKey_problem', name:'api_key_problem')]
+    public function apiKeyError(): Response
+    {
+        return $this->render('reset_password/api_problem.html.twig');
     }
 }
