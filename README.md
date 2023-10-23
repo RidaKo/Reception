@@ -6,7 +6,7 @@ Follow these steps to set up and run the project on your local machine.
 
 ### Prerequisites
 
-- PHP (version 7.4 or higher)
+PHP (version 8.2.5)
 - Composer
 - Docker
 - MySQL (In docker)
@@ -15,64 +15,64 @@ Follow these steps to set up and run the project on your local machine.
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/RidaKo/Reception.git
-    ```
-    And then open the project in your code edditor.
+    ```bash
+    git clone https://github.com/RidaKo/Reception.git
+    ```
+    And then open the project in your code editor.
 
 2. Configure the database and mailer:
-    1. While using docker
-       Use the command
-       ```bash
-       docker-compose up -d
-       ```
+    1. While using docker
+       Use the command
+       ```bash
+       docker-compose up -d
+       ```
 
-    2. If docker is not avaliable:
-       Configure the database connection parameters in the .env file.
+    2. If docker is not avaliable:
+       Configure the database connection parameters in the .env file.
 
 
 3. Install dependencies using Composer:
 
-    ```bash
-    composer install
-    ```
-    - If you get an DATABASE_URL missing error due to the variable not being expozed from docker. Just mannualy clear the cache with `symfony console cache:clear` command.
+    ```bash
+    composer install
+    ```
+    - If you get an DATABASE_URL missing error due to the variable not being exposed from Docker, Just manually clear the cache with `symfony console cache:clear` command.
 
 4. Configure the mailer dsn in the .env file.
-  ```
-  MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
-  ```
+  ```
+  MAILER_DSN=sendgrid://enter_your_provided_api_key_insted_of_this_sentence@default
+  ```
 > This `enter_your_provided_api_key_insted_of_this_sentence` should be replaced by your provided api key.
 
 4. Migrate migrations
-   ```bash
-   symfony console doctrine:migrations:migrate
-   ```
-6. Install and run yarn
-   ```bash
-   yarn install
-   yarn watch
-   ```
+   ```bash
+   symfony console doctrine:migrations:migrate
+   ```
+6. Install and run yarn.
+   ```bash
+   yarn install
+   yarn watch
+   ```
 
-7.  **Registration setup**
-- While using docker this command connects to the database: 
+7.  **Registration setup**
+- While using Docker, this command connects to the database: 
 ```bash
 docker-compose exec database mysql -u root --password=password
 ```
 - For a specialist to register, a manual entry must be made in the database that contains a `secret key` with the command:
-  ```bash
-  use main;
-  INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
-  ```
-  > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
+  ```bash
+  use main;
+  INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
+  ```
+  > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
 
 8. Run the Symfony development server:
 
-    ```bash
-    symfony server:start
-    ```
+    ```bash
+    symfony server:start
+    ```
 
-9. Access the application in your browser at the the provided link in the console.
+9. Access the application in your browser at the provided link in the console.
 
 ## Usage
 
@@ -81,8 +81,7 @@ The project has two main functionalities:
 2) Registering and using an admin/specialist account to manage the appointments designated to the specialist.
 
 #### Registration explanation
-Each time you want to register a specialist please repeat the seventh instalation step to create a secret key that will be used in the form when creating a specialist for authorization purposes.
-
+Each time you want to register a specialist please repeat the seventh installation step to create a secret key that will be used in the form when creating a specialist for authorization purposes.
 
 
 
@@ -111,11 +110,11 @@ This is the registration page where you can create a specialist account. Before 
 ![image](https://github.com/RidaKo/Reception/assets/113443126/9f4f5227-1f99-4ff6-8951-8a8d12d5a77c)
 
 ---
-This is where you are directed after clicking forgot password on the login page. Here, you need to enter your email and click submit. After receiving the email, click the provided link, which will direct you to a page where you will be allowed to change your password.
+This is where you are directed after clicking forgot password on the login page. Here, you need to enter your email and click submit. Then a web page will show up that confirms the sending of the email. After receiving the email, click the provided link, which will direct you to a page where you will be allowed to change your password.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/abae7f25-636f-49c5-a4ed-8abfb9e3000b)
 
 ---
-This is the specialist home page, where you are directed after logging in. Here, the specialist can manage his customer appointments by clicking the buttons on the table rows where their credentials reside. The numbered buttons can be used to switch pages. Home leads to the general home page, and logout logs the specialist out.
+This is the specialist home page, where you are directed after logging in. Here, the specialist can manage his customer appointments by clicking the buttons on the table rows where their credentials reside. The numbered buttons can be used to switch pages where more customers are displayed. Home leads to the general home page, and logout logs the specialist out.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/d98fb413-3a81-4e8f-9b24-b5f78a8d49a6)
 
 ---
@@ -125,6 +124,9 @@ This is the general homepage once again, but this time the available options hav
 ---
 This image shows the page where you are directed after clicking "display". Here, we can see the upcoming appointments and the current appointments.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/ae3a372d-774d-4443-a202-088e391bbba6)
+
+
+That is everything about the functionalities of the homepage.
 
 
 ## Contributing
