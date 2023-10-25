@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation Complete</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #007bff;
+        }
+        b.rez-code {
+            font-size: 24px;
+            color: #15822e;
+        }
+
+        .time-left
+        {
+            font-size: 20px;
+            color: #007bff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Reservation Complete</h2>
+        <br>
+        <font class="time-left">Time left until appointment: <b>{{ customer.getTimeBeforeAppointment}}</b> </font> <br><br>
+        <font style="color: #007bff"> Reservation Code<font>
+        <b class="rez-code">{{ customer.getReservationCode() }}</b><br>
+
+    </div>
+</body>
+</html>

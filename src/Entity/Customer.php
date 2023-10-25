@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CustomerRepository;
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -94,4 +95,10 @@ class Customer
 
         return $this;
     }
+    public function getTimeBeforeAppointment(): ?string
+    {
+        $time_before_appointment = $this->appointment_time ->diff(new \DateTimeImmutable());
+        return $time_before_appointment->format('%d days %h hours %i minutes');
+    }
+
 }

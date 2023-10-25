@@ -16,8 +16,13 @@
         {% endblock %}
     </head>
     <body>
+        {% block taskbar %}
+        <div class="text-end">
+                <a href="{{ path('app_homepage') }}" class="btn btn-default" role="button">Home</a>
+        {% endblock %}
+        </div>
         {% block body %}
-        
+
         {% endblock %}
     </body>
 </html>

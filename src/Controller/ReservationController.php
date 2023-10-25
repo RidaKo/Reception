@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 use Knp\Snappy\Pdf;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -84,11 +85,13 @@ class ReservationController extends AbstractController
             $entityManagerInterface->flush();
             $reservation = true;
 
-            $email = (new Email())
-            ->from('testporator@gmail.com')
+            $email = (new TemplatedEmail())
             ->to($request->request->get('email'))
             ->subject('Registration confirmation')
-            ->html("<html> <h2>Reservation complete</h2> <br> Your reservation code: <b>{$customer->getReservationCode()}.</b> </html>");
+            ->htmlTemplate('reservation/reservation_email.html.twig')
+            ->context([
+                'customer' => $customer 
+            ]);
             //dd($email);
             try{
                 $mailerInterface->send($email);
