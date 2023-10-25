@@ -27,10 +27,6 @@ git clone https://github.com/RidaKo/Reception.git
 docker-compose up -d
 ```
 
-    2. If docker is not avaliable:
-       Configure the database connection parameters in the .env file.
-
-
 3. Install dependencies using Composer:
 
 ```
