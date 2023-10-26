@@ -97,7 +97,7 @@ class Customer
     }
     public function getTimeBeforeAppointment(): ?string
     {
-        $time_before_appointment = $this->appointment_time ->diff(new \DateTimeImmutable());
+        $time_before_appointment = $this->appointment_time->diff(new \DateTimeImmutable('now', new \DateTimeZone('Europe/Vilnius')));
         return $time_before_appointment->format('%d days %h hours %i minutes');
     }
 

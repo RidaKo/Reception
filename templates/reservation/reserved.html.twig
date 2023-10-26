@@ -20,7 +20,7 @@
                     <p class="lead">
                         Your Serial Code: <b>{{ customer.reservationCode }}</b>
                         <br>
-                        Your Appointment Time: <b>{{ customer.appointmentTime|date('Y-m-d H:i:s') }}</b> <br>
+                        Your Appointment Time: <b>{{ customer.appointmentTime|date('Y-m-d H:i:s', "Europe/Vilnius") }}</b> <br>
                         Time Left until your appointment: <b>{{ customer.TimeBeforeAppointment }} </b>
                     </p>
                     <div class="btn-group" role="group">

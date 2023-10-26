@@ -47,7 +47,8 @@ class ReservationController extends AbstractController
         {
             if($customerRepository->findAll() == [] || $customerRepository->findBy(['state' => 'reserved']) == null )
             {
-                $appointment_time = new DateTime();
+                $appointment_time = new DateTime('now', new \DateTimeZone('Europe/Vilnius'));
+                $appointment_time->modify('+5 minute');
                 $specialist_array= $specialistRepository->findAll();
                 $specialist = $specialist_array[array_rand($specialist_array)];
             }
@@ -59,7 +60,7 @@ class ReservationController extends AbstractController
             }
             
 
-            if($appointment_time>= new \DateTime($appointment_time->format('Y-m-d').'19:00:00') && $appointment_time>=(new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day'))
+            if( ( $appointment_time >= new \DateTime($appointment_time->format('Y-m-d').'19:00:00') ) && ( $appointment_time>=(new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day') ) )
             {
                 $appointment_time = (new \DateTime(($appointment_time->format('Y-m-d'.'06:00:00'))))->modify('+1 day');
             }
@@ -107,7 +108,6 @@ class ReservationController extends AbstractController
         }
         
 
-        
         //Calculation
         //$customer = $customerRepository->findOneBy(['email' => ]);
         
