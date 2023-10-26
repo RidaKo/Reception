@@ -32,7 +32,7 @@ docker-compose up -d
 ```
 composer install
 ```
-    > If you get an **DATABASE_URL missing error** due to the variable not being exposed from Docker don't worry. Just manually clear the cache with 
+> If you get an **DATABASE_URL missing error** due to the variable not being exposed from Docker don't worry. Just manually clear the cache with 
     `symfony console cache:clear` command that has access to exposed docker variables.
 
 4. Configure the mailer dsn in the .env file.
