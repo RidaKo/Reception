@@ -20,9 +20,8 @@ git clone https://github.com/RidaKo/Reception.git
 ```
     And then open the project in your code editor.
 
-2. Configure the database and mailer:
-    1. While using docker
-       Use the command
+2. Configure the database:
+While using docker use the command
 ```
 docker-compose up -d
 ```
@@ -62,7 +61,7 @@ docker-compose exec database mysql -u root --password=password
 use main;
 INSERT INTO specialist (email, roles, password, secret_key) VALUES ('','[]','','secret_key');
 ```
-  > All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
+> All the values must be the same. The only one that **has** to be replaced is the `secret_key` value that will be used during registration when creating an account. The value can be any string that you deem to be secure.
 
 8. Run the Symfony development server:
 
