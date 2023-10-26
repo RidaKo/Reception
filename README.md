@@ -84,7 +84,7 @@ Each time you want to register a specialist please repeat the seventh installati
 
 
 #### Pictures with explanations showing all the different web pages and their usage:
-This is the home page, which directs to two different web pages: one where a customer may make a reservation and another where a specialist can login or choose to register.
+This is the home page, which directs to two different web pages: one where a customer may make a reservation and another where a specialist can login or choose to register. In ceratin pages you will see buttons appear on the top right that will lead you to the home page or let you log out.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/b2cdf6d8-d215-448d-8cd5-ef4b97aa28cf)
 
 ---
@@ -120,8 +120,10 @@ This is the general homepage once again, but this time the available options hav
 ![image](https://github.com/RidaKo/Reception/assets/113443126/99a08c5a-1a5c-40eb-8700-0b6a8fd247de)
 
 ---
-This image shows the page where you are directed after clicking "display". Here, we can see the upcoming appointments and the current appointments.
+This image shows the page where you are directed after clicking "display". Here, we can see the upcoming appointments and the current appointments. If you wait a little bit you will see the page refresh automatically.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/ae3a372d-774d-4443-a202-088e391bbba6)
+
+---
 
 #### Checking rememberme authentication functionality
 First we login with our specialist account. And check in our debug tool bar that our authentication method was with PostAuthentication token.
@@ -138,6 +140,8 @@ or
 
 Now close the developer tools. Refresh the page. Go to the developer tools and we can see that this time the remember me cookies was used for authentication.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/f0749095-3ce1-4ee2-8a9f-2f7979b91dbd)
+
+---
 
 #### How to seed the database
 If you completed all previous steps your database should be completely set up.
@@ -158,24 +162,20 @@ The customer table gets one extra entry that is not yet been registered as an ac
 
 > For all specialist accounts the password is `pass`
 
+---
+
 #### How to run symfony tests
 Use the command :
 ```
 symfony php bin/phpunit
 ```
-And now check the results.
+And now check the test results.
+
+#### The holiday api
+Due to the limitations of the api (the service needs to be paid for to recieve the current year holiday dates), it does not function in present time. The test you ran in the previous section checked the api functionality and if you had no errors that means it works.
 
 
-
-
-
-
-
-
-
-
-
-That is everything about the functionalities of the homepage.
+Now all the requiremets have been adressed.
 
 
 ## Contributing
