@@ -99,8 +99,8 @@ This is where you are directed after canceling a reservation and can return to t
 ![image](https://github.com/RidaKo/Reception/assets/113443126/8e4c9fda-33c1-4d84-8cc7-1c4ee0c01950)
 
 ---
-This is the login page where you are directed after clicking the "Login as a specialist button" on the homepage. Here, you should submit your login details. If you do not have an account, you can choose to register or change your password if you have forgotten it.
-![image](https://github.com/RidaKo/Reception/assets/113443126/b08ece9e-b60a-4393-81b5-b848d39f45ad)
+This is the login page where you are directed after clicking the "Login as a specialist button" on the homepage. Here, you should submit your login details. If you do not have an account, you can choose to register or change your password if you have forgotten it. The Keep me logged in enables remember me authentication. Make sure to check it as you log in.
+![image](https://github.com/RidaKo/Reception/assets/113443126/41fce8e1-1127-46ba-b44d-03736517056f)
 
 ---
 This is the registration page where you can create a specialist account. Before registering, make sure you have been provided a secret key that helps identify if you have permission to create an account. Refer to the [Registration setup](#registration-explanation) section on how to create a secret key.
@@ -125,7 +125,7 @@ This image shows the page where you are directed after clicking "display". Here,
 ---
 
 #### Checking rememberme authentication functionality
-First we login with our specialist account. And check in our debug tool bar that our authentication method was with PostAuthentication token.
+First we login with our specialist account while checking the Keep me logged in check box. And check in our debug tool bar that our authentication method was with PostAuthentication token.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/54a74b51-7366-41aa-901c-199e30d76044)
 
 
