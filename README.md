@@ -124,22 +124,9 @@ This image shows the page where you are directed after clicking "display". Here,
 
 ---
 
-#### Checking rememberme authentication functionality
-First we login with our specialist account while checking the Keep me logged in check box. And check in our debug tool bar that our authentication method was with PostAuthentication token.
+#### Rememberme authentication functionality
+We login with our specialist account while checking the Keep me logged in check box and that will activate the remember me functionality.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/54a74b51-7366-41aa-901c-199e30d76044)
-
-
-Then we open our developer tools. Go to application -> storage -> cookies. Find the PHPSESSID cookie and delete it after right clicking it.  The provided example is showed on edge browser. The layout might be different on other browsers, but all you have to do is find the cookies and delete the phpsession coockie. You can also see that the remember me cockie is created.
-![image](https://github.com/RidaKo/Reception/assets/113443126/42455487-4607-4e4e-bbb6-bf66665cdfbc)
-
-![image](https://github.com/RidaKo/Reception/assets/113443126/5b2ad7a4-d426-4b60-aecf-438675f4a826)
-or
-![image](https://github.com/RidaKo/Reception/assets/113443126/f06d2703-de2b-437b-b4ce-8322f84d7480)
-
-![image](https://github.com/RidaKo/Reception/assets/113443126/5023bceb-bd2c-4dc0-acd3-59ab5c797124)
-
-Now close the developer tools. Refresh the page. Go to the developer toll bar and we can see that this time the remember me cookies was used for authentication.
-![image](https://github.com/RidaKo/Reception/assets/113443126/f0749095-3ce1-4ee2-8a9f-2f7979b91dbd)
 
 ---
 
