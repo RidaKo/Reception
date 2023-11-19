@@ -99,7 +99,7 @@ This is where you are directed after canceling a reservation and can return to t
 ![image](https://github.com/RidaKo/Reception/assets/113443126/8e4c9fda-33c1-4d84-8cc7-1c4ee0c01950)
 
 ---
-This is the login page where you are directed after clicking the "Login as a specialist button" on the homepage. Here, you should submit your login details. If you do not have an account, you can choose to register or change your password if you have forgotten it. The Keep me logged in enables remember me authentication. Make sure to check it as you log in.
+This is the login page where you are directed after clicking the "Login as a specialist button" on the homepage. Here, you should submit your login details. If you do not have an account, you can choose to register or change your password if you have forgotten it. The Keep me logged in enables **remember me** authentication. Make sure to check it as you log in.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/41fce8e1-1127-46ba-b44d-03736517056f)
 
 ---
@@ -121,12 +121,6 @@ This is the general homepage once again, but this time the available options hav
 ---
 This image shows the page where you are directed after clicking "display". Here, we can see the upcoming appointments and the current appointments. If you wait a little bit you will see the page refresh automatically.
 ![image](https://github.com/RidaKo/Reception/assets/113443126/ae3a372d-774d-4443-a202-088e391bbba6)
-
----
-
-#### Rememberme authentication functionality
-We login with our specialist account while checking the Keep me logged in check box and that will activate the remember me functionality.
-![image](https://github.com/RidaKo/Reception/assets/113443126/54a74b51-7366-41aa-901c-199e30d76044)
 
 ---
 
