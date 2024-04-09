@@ -166,5 +166,5 @@ There is no way to contribute
 The project currently does not have any license.
 
 ## Acknowledgments
-Big thanks to Gediminas for his assistance over the whole project.
+Big thanks to Gediminas for his curration over the whole project.
 
